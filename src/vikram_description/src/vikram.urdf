@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<robot name="vikram">
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://vikram_description/meshes/body/bot2.dae"/>
+      </geometry>
+ <origin rpy="0 0 0" xyz="0 0 0"/>
+
+    </visual>
+
+    <collision>
+      <geometry>
+        <mesh filename="package://vikram_description/meshes/body/bot2.dae"/>
+      </geometry>
+ <origin rpy="0 0 0" xyz="0 0 0"/>
+
+    </collision>
+
+    <inertial>
+      <mass value="10"/>
+      <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
+    </inertial>
+  </link>
+
+<link name="wheel1">
+<visual>
+<geometry>
+<mesh filename="package://vikram_description/meshes/wheels/tyre1.dae"/>
+</geometry>
+<origin rpy ="0 0 0" xyz="0 0 0"/>
+</visual>
+
+<collision>
+<geometry>
+<mesh filename="package://vikram_description/meshes/wheels/tyre1.dae"/>
+</geometry>
+<origin rpy ="0 0 0" xyz="0 0 0"/>
+</collision>
+
+    <inertial>
+      <mass value="2"/>
+      <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
+    </inertial>
+
+</link>
+<link name="wheel2">
+<visual>
+<geometry>
+<mesh filename="package://vikram_description/meshes/wheels/tyre1.dae"/>
+</geometry>
+<origin rpy ="0 0 0" xyz="0 0 0"/>
+</visual>
+
+<collision>
+<geometry>
+<mesh filename="package://vikram_description/meshes/wheels/tyre1.dae"/>
+</geometry>
+<origin rpy ="0 0 0" xyz="0 0 0"/>
+</collision>
+
+    <inertial>
+      <mass value="2"/>
+      <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
+    </inertial>
+
+</link>
+
+<link name="castor_ball">
+<visual>
+<geometry>
+<sphere radius="0.05"/>
+</geometry>
+<origin rpy ="0 0 0" xyz="0 0 0"/>
+</visual>
+
+<collision>
+<geometry>
+<sphere radius="0.05"/>
+</geometry>
+<origin rpy ="0 0 0" xyz="0 0 0"/>
+</collision>
+
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
+    </inertial>
+
+</link>
+
+<link name="castor_cylinder">
+<visual>
+<geometry>
+ <cylinder length="0.03" radius="0.05"/>
+</geometry>
+<origin rpy ="0 0 0" xyz="0 0 0"/>
+</visual>
+
+<collision>
+<geometry>
+ <cylinder length="0.03" radius="0.05"/>
+</geometry>
+<origin rpy ="0 0 0" xyz="0 0 0"/>
+</collision>
+
+    <inertial>
+      <mass value="0.5"/>
+      <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
+    </inertial>
+
+</link>
+
+
+ <joint name="body_to_wheel1" type="continuous">
+    <parent link="base_link"/>
+    <child link="wheel1"/>
+	<axis xyz="0 1 0"/>
+    <origin rpy ="0 0 0" xyz="0 0.24 0"/>
+  </joint>
+ <joint name="body_to_wheel2" type="continuous">
+    <parent link="base_link"/>
+    <child link="wheel2"/>
+    <axis xyz="0 1 0"/>
+    <origin rpy ="0 0 0" xyz="0 -0.24 0"/>
+  </joint>
+
+
+ <joint name="body_to_castor_cylinder" type="continuous">
+    <parent link="base_link"/>
+    <child link="castor_cylinder"/>
+    <axis xyz="0 0 1"/>
+    <origin rpy ="0 0 0" xyz="0.4 0 0"/>
+  </joint>
+
+ <joint name="cylinder_to_castor_ball" type="continuous">
+    <parent link="castor_cylinder"/>
+    <child link="castor_ball"/>
+    <axis xyz="0 1 0"/>
+    <origin rpy ="0 0 0" xyz="0 0 -0.06"/>
+  </joint>
+
+</robot>

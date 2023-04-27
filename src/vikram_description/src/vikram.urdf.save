@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<robot name="my_car">
+
+  <!-- Define the base link -->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- Define the link for the car body -->
+  <link name="car_body">
+    <visual>
+      <geometry>
+        <mesh filename="
+bot2.dae"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- Define the link for the front wheel -->
+  <link name="front_wheel">
+    <visual>
+      <geometry>
+        <mesh filename="castors1.dae"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- Define the link for the rear wheel -->
+  <link name="rear_wheel">
+    <visual>
+      <geometry>
+        <mesh filename="tyre1.dae"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- Define the joint between the base link and the car body -->
+  <joint name="base_to_car_body" type="fixed">
+    <origin xyz="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="car_body"/>
+  </joint>
+
+  <!-- Define the joint between the car body and the front wheel -->
+  <joint name="car_body_to_front_wheel" type="continuous">
+    <origin xyz="0 0 0.5"/>
+    <parent link="car_body"/>
+    <child link="front_wheel"/>
+    <axis xyz="1 0 0"/>
+  </joint>
+
+  <!-- Define the joint between the car body and the rear wheel -->
+  <joint name="car_body_to_rear_wheel" type="continuous">
+    <origin xyz="0 0 -0.5"/>
+    <parent link="car_body"/>
+    <child link="rear_wheel"/>
+    <axis xyz="-1 0 0"/>
+  </joint>
+
+</robot>

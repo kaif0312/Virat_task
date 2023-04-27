@@ -1,0 +1,26 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/kaif/gazebo_ws/devel/include/**",
+        "/home/kaif/catkin_ws/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/kaif/catkin_ws/src/beginner_tutorials/include/**",
+        "/home/kaif/gazebo_ws/src/gazebo_funstuff/include/**",
+        "/home/kaif/gazebo_ws/src/vikram_description/include/**",
+        "/home/kaif/gazebo_ws/src/vikram_gazebo/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
